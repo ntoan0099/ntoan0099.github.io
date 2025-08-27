@@ -1,0 +1,22 @@
+main {
+
+    height: 100%;
+    .title-block {
+        margin: 20px;
+        text-align: center;
+    }
+    .video-row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin: 20px;
+        >iframe {
+            width: 500px;
+            aspect-ratio: 2 / 1;
+            margin-right: 10px;
+        }
+        >div {
+            margin-left: 20px;
+        }
+    }
+
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta title="Ethan Toan Le">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="audio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+    // TODO: Add a key/value pair for each toggle action
+    var toggleRecords = new Map([
+      ["wizards-list-toggle", false],
+      ["declare-list-toggle", false]
+    ])
+
+    /* 
+      toggleElement(id:string, contentId: string)
+      Takes in an id for an HTML element and will add/remove the up-down carrat class, depending on its
+      current state
+    */
+    function toggleElement(toggleSourceId, contentId = null) {
+      if (!toggleRecords.has(toggleSourceId)) {
+        throw new Error('Could not find record of toggle with id');
+      }
+
+      toggleRecords.set(toggleSourceId, !toggleRecords.get(toggleSourceId))
+
+      const toggleElement = document.getElementById(toggleSourceId);
+      if (toggleElement == null) {
+        throw new Error('Could not find toggle element');
+      }
+
+      const contentElement = document.getElementById(contentId);
+
+      if (toggleRecords.get(toggleSourceId)) {
+        // We have the list showing
+        toggleElement.classList.remove('fa-caret-down');
+        toggleElement.classList.add('fa-caret-up');
+        if (contentElement != null) {
+          contentElement.style.display = 'block';
+        }
+      } else {
+        // We have the list hiding
+        toggleElement.classList.remove('fa-caret-up');
+        toggleElement.classList.add('fa-caret-down');
+        if (contentElement != null) {
+          contentElement.style.display = 'none';
+        }
+      }
+    }
+
+
+
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="header-grid">
+      <!-- Header and footer are sticky -->
+      <div class="header-content">
+        <a href="" download="true">
+          <h3>Resume / CV</h3>
+        </a>
+        <div class="vertical-rule"></div>
+        <a href="#contact-info">
+          <h3>Contact Me</h3>
+        </a>
+      </div>
+      <a class="name" href="index.html">
+        <h2>Ethan Toan Le</h2>
+      </a>
+      <div class="header-icons">
+        <ul>
+          <li>
+            <a href="http://www.linkedin.com/in/ethanle99">
+              <i class="fa fa-linkedin-square"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <!-- Second section -->
+      <ul class="nav">
+        <li>Home</li>
+        <li class="dropdown">
+          <a href="writing-home.html"><button class="dropbtn">Writing
+              <i class="fa fa-caret-down"></i>
+            </button></a>
+
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </li>
+        <li><a href="video.html">Videotography</a></li>
+        <li><a href="audio.html">Audio Production</a></li>
+        <li><a href="photo.html">Photography/Social Media Posts</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="audio-element">
+      <h5 class="audio-title">Mic & Quil Trailer</h5>
+      <p class="audio-description">Description</p>
+      <audio controls>
+        <source src="Mic & Quil_Trailer.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <div class="audio-element-series">
+      <div>
+        <!-- Title panel -->
+        <h5 class="audio-title">Wizards of Oscars</h5>
+        <i id="wizards-list-toggle" class="fa fa-caret-down"
+          onclick="toggleElement('wizards-list-toggle', 'wizards-list')"></i>
+      </div>
+      <div id="wizards-list" style="display: none;">
+        <!-- Description Panel -->
+        <div>
+          <div class="subtitle">Trailer</div>
+          <div class="audio-description">Trailer for the Wizards of Oscars Series</div>
+          <audio controls>
+            <source src="Wizards of Oscars Trailer.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div>
+          <div class="subtitle">Episode 1 - Best Pictures Prediction: Is oppenheimer a clear front runner?</div>
+          <div class="audio-description">Description</div>
+          <audio controls>
+            <source src="WOO_Episode 1_ Best Pictures Prediction_Is Oppehiemher a Clear Frontrunner.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div>
+          <div class="subtitle">Episode 2 - Is Bradley Cooper Locked for Another Nomination</div>
+          <div class="audio-description">Description</div>
+          <audio controls>
+            <source src="WOO_Ep2_Is Bradley Cooper Locked for Another Nomination.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div>
+          <div class="subtitle">Episode 3 - Is Barbie Going to Dominate the Acting Categories</div>
+          <div class="audio-description">Description</div>
+          <audio controls>
+            <source src="WOO_Ep3_Is Barbie Going To Dominate The Acting Catagories.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="audio-element-series">
+      <div>
+        <!-- Title panel -->
+        <h5 class="audio-title">I Do Declare - Editing Works</h5>
+        <i id="declare-list-toggle" class="fa fa-caret-down"
+          onclick="toggleElement('declare-list-toggle', 'declare-list')"></i>
+      </div>
+      <div id="declare-list" style="display: none;">
+        <!-- Description Panel -->
+         <!-- TODO: Put your audio files here -->
+        <div>Test</div>
+      </div>
+    </div>
+
+
+  </main>
+  <footer id="contact-info">
+
+    <div>Boonton, NJ, 07005</div>
+    <div></div>
+    <div>ntoan0099@gmail.com</div>
+    <div></div>
+    <div>(973) 874-8892</div>
+
+  </footer>
+</body>
+
+</html>

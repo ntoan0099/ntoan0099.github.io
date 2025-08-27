@@ -1,0 +1,73 @@
+.audio-element {
+  margin-left: 30px;
+  padding: 16px;
+}
+
+.audio-title {
+  text-align: left;
+}
+
+.audio-element-series {
+  margin-left: 30px;
+  padding: 16px;
+  width: calc(100% - 30px - 30px - 16px);
+  flex-direction: row;
+
+  >div:first-child {
+    /* Title Panel */
+    display: flex;
+    justify-content: space-between;
+
+    >h5 {
+      margin-left: 0px;
+    }
+
+    >i {
+      font-size: 40px;
+    }
+    >* {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+
+  >div:last-child {
+    /* Description Panel */
+
+  }
+}
+
+.wizards-list {
+  >div {
+    margin-bottom: 8px;
+  }
+}
+
+.episodes {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* .audio-element-series .audio-series {
+  background-color: inherit;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  margin: 0;
+} */
+
+.audio-element-series:active .episodes {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+}

@@ -1,0 +1,33 @@
+main {
+    margin-left: 20px
+}
+
+.writing-block {
+    margin-bottom: 20px;
+
+    .showcase {
+        display: grid;
+        gap: 50px;
+        grid-template-columns: repeat(auto-fill, 186px);
+
+        >.showcase-item {
+            >div:first-child {
+                width: 200px;
+                height: 256px;
+                overflow: hidden;
+
+                iframe {
+                    width: 216px;
+                    height: 256px;
+                    border: none;
+                    pointer-events: none;
+                }
+            }
+            >div:last-child {
+                text-align: center;
+                margin-top: 2px;
+            }
+        }
+
+    }
+}
