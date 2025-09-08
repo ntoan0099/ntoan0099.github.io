@@ -52,15 +52,10 @@
   z-index: 1;
 }
 
-/* .audio-element-series .audio-series {
-  background-color: inherit;
-  color: inherit;
-  font: inherit;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  margin: 0;
-} */
+.subtitle {
+  padding: 5px; 
+}
+
 
 .audio-element-series:active .episodes {
   display: flex;
